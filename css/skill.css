@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Zen Maru Gothic', serif;
+  background: #fdfaf6;
+  color: #4a4a6a;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+header.intro {
+  background: linear-gradient(to right, #eaeff7, #BEBFD9);
+  color: #4a4a6a;
+  text-align: center;
+  padding: 60px 20px;
+  animation: fadeIn 2s ease;
+}
+
+.skills, .works, .closing {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.skill-box {
+  background: #fff;
+  border-left: 6px solid #f6f0ff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  animation: floatUp 1.5s ease;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #4a4a6a;
+  margin-bottom: 20px;
+}
+
+footer.closing {
+  background: #f6f0ff;
+  color: #4a4a6a;
+  text-align: center;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.back-link a {
+  color: #666;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin-right: 10px;
+}
+
+.back-link a:hover {
+  color: #000;
+}

@@ -1,0 +1,687 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: 'YuGothic', 'Yu Gothic', sans-serif; /* 総称フォントにサンセリフ */
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.wrapper {
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* セクションタイトル */
+.section-title {
+  font-size: clamp(30px, 7vw, 80px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: none;                                    /* 大文字化を避ける                        */
+  background: linear-gradient(90deg, #5B0072, #F6BDFF, #5B0072);    /* 横向き90度のグラデーション              */
+  background-size: 200% auto;                              /* 背景を２倍にして、流れに見せる          */
+  -webkit-background-clip: text;                           /* 背景を文字の形に切り取る                */
+  -webkit-text-fill-color: transparent;                    /* 文字の色を透明にして背景が透けるように  */
+}
+/* リンクの下線を消す */
+a {
+  text-decoration: none;
+  color: #333;
+}
+/*-------------------------------------------
+ メインヴィジュアル
+-------------------------------------------*/
+.mainvisual {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainvisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: titlefadeIn 2s ease-in-out;
+}
+
+.title img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@keyframes titlefadeIn {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+
+.mainvisual .navi {
+  position: absolute;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #000;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5); /* 半透明の背景で読みやすく */
+  padding: 2px 50px;
+  font-size: 18px;
+  border-radius: 8px;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.mainvisual .navi ul {
+  list-style: none;
+  //padding: 0;
+  display: inline-flex;
+  padding: 10px 0px;
+  gap: 100px;
+}
+
+.mainvisual .navi a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateX(-50%);
+  }
+}
+
+.mainvisual .navi a:hover {
+  color: #FFFD55;
+}
+
+/*-------------------------------------------
+ 自己紹介
+-------------------------------------------*/
+#about {
+  padding-top: 0px;
+  padding-bottom: 100px;
+  position: relative;  /* 自己紹介文の基準にする */
+}
+/*-------------------------------------------
+ 自己紹介 タイトル
+-------------------------------------------*/
+#about .section-title {
+  margin: 0 0 1vw -5vw;            /* タイトルの少し上になるように配置     */
+  position: relative;              /* 位置を親にする                       */
+  z-index: 10;                     /* 最前面にする                         */
+}
+/*-------------------------------------------
+ 自己紹介画像
+-------------------------------------------*/
+#about .img {
+  max-width: 720px;    /* コンセプト画像は720pxで固定  */
+}
+/*-------------------------------------------
+自己紹介テキスト
+-------------------------------------------*/
+#about .text {
+  max-width: 800px;
+  background-color: rgba(254, 255, 145, 0.8);    /* 背景色に近い色で0.8透明にする*/
+  padding: 40px;
+  position: absolute; /* 親要素を基準とする              */
+  top: 500px;         /* 親要素から500px下げる           */
+  right: 0;           /* 右寄せ                          */
+  z-index: 10;        /* 最前面にする                    */
+}
+#about .text .section-Headline {
+  font-family: 'YuMincho', 'Yu Mincho', serif; /* 游明朝   総称フォントセリフ*/
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+/* 説明文 */
+#about .text .description {
+  font-size: 1em;
+  line-height: 1.8;
+  text-align: justify;  /* テキストの両端を揃える */
+}
+/*-------------------------------------------
+ ワークス
+-------------------------------------------*/
+#works {
+  padding-top: 400px;
+  padding-bottom: 100px;
+  position: relative;  /* 基準にする */
+  margin-bottom: 80px;
+}
+/*-------------------------------------------
+ ワークス タイトル
+-------------------------------------------*/
+#works .section-title {
+  z-index: 10;                        /* 最前面にする                         */
+  margin: 0 0 1vw -5vw;               /* タイトルの少し上になるように配置     */
+}
+
+
+#works .works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+#works .work-card {
+  background: #EDEDEC;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  //transition: transform 0.3s ease;
+}
+
+
+#works .work-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(0deg, #ccae9f 0%, #28305d 40%, #050847 80%) no-repeat #383d95;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.star {
+  background-color: white;
+  position: absolute; /* ←ここが重要！ */
+  border-radius: 50%;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+}
+
+@keyframes twinkle {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.2); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+#starry_sky {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#works .work-card:hover::before {
+  opacity: 0.3;
+}
+
+#works .work-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+#works .work-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-family: 'YuMincho', 'Yu Mincho', serif; /* 游明朝   総称フォントセリフ*/
+  color: #A05CAB;
+}
+
+#works.work-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/*-------------------------------------------
+ スキル
+-------------------------------------------*/
+
+/*-------------------------------------------
+  スキル タイトル
+-------------------------------------------*/
+#skill .section-title {
+  margin: 0 0 0 -5vw;
+  position: relative;
+  z-index: 10;
+}
+
+#skill .img {
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* 画像を右寄せ */
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+#skill .img img {
+  width: 50%;
+  height: auto;
+  display: block;
+}
+
+#skill .section-Headline {
+  font-family: 'YuMincho', 'Yu Mincho', serif; /* 游明朝   総称フォントセリフ*/
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#skill .description {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.8;
+  text-align: justify;  /* テキストの両端を揃える */
+}
+
+#skill .text {
+  position: absolute;
+  left: 5%;
+  top: 60%;
+  transform: translateY(-50%);
+  background: rgba(214, 237, 230, 0.75);
+  padding: 30px;
+  max-width: 500px;
+  animation: fadeIn 2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(50%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#skill .text a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #f8b500;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#skill .text a:hover {
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+/*-------------------------------------------
+ コンタクト
+-------------------------------------------*/
+/* Contactセクション全体 */
+#contact .wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3em 1em;
+  box-shadow: 0 0 20px rgba(240, 230, 220, 0.4);
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  color: #4b3f2f;
+}
+#contact .section-title {
+  margin: 0 0 0 -5vw;
+  position: relative;
+  z-index: 10;
+}
+/* タイトル */
+/*#contact .section-title {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  text-align: center;
+  color: #7a5c3e;
+}*/
+
+
+.contact-back  {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: none; /* 必要に応じて */
+  margin-bottom: 20px;
+}
+
+.contact-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: calc(100% + 60px);
+  height: 100%;
+  background-image: url("../img/top/contactBack2.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeatt;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none; /* 背景がクリックを邪魔しないように */
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 90%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+
+@keyframes fairyFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+    transition: opacity 3s ease-in-out;
+  }
+}
+.fairy {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;  /* 背景がクリックを邪魔しないように */
+  z-index: -1;
+  transition: opacity 2s ease-in-out;
+
+}
+.fairy-wind {
+  top: 10%;
+  left: 10%;
+  background-image: url("../img/top/fairy1.png");
+
+}
+
+.fairy-light {
+  top: 40%;
+  left: 50%;
+  background-image: url("../img/top/fairy2.png");
+}
+
+.fairy-dream {
+  top: 60%
+  left: 60px;
+  background-image: url("../img/top/fairy3.png");
+}
+/* 説明文 */
+#contact .wrapper p {
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* ラベル */
+#contact form label {
+  display: block;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+  color: #6b4c3b;
+  font-family: 'YuMincho', 'Yu Mincho', serif; /* 游明朝   総称フォントセリフ*/
+
+
+}
+
+/* 入力欄・テキストエリア */
+#contact input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1.5em;
+  border: 1px solid #d8cfc4;
+  border-radius: 8px;
+  background-color: #fffdf9;
+  font-size: 1em;
+  font-family: 'Helvetica Neue', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+#contact input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(200, 180, 160, 0.4);
+}
+
+/* 送信ボタン */
+#contact button[type="submit"] {
+  background: linear-gradient(to right, #e6d3c1, #f5e9dc);
+  color: #5a4433;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+#contact button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(180, 150, 130, 0.3);
+}
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+#footer {
+  background-color: #EDEDEC;
+  padding: 30px 0;
+}
+#footer .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#footer .logo {
+  max-width: 130px;
+}
+#footer .copyright {
+  color: #A05CAB;
+  font-size: 12px;
+}
+
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+@media (max-width: 768px) {
+
+  /*-------------------------------------------
+   セクションタイトル
+  -------------------------------------------*/
+  .section-title {
+    font-size: 8vw;
+  }
+
+  /*-------------------------------------------
+  メインヴィジュアル
+  -------------------------------------------*/
+  
+  .mainvisual {
+    width: 100%;
+    height: 300px;
+  }
+  .mainvisual .navi {
+    left: 10%;
+    padding: 0;
+    transform: none;
+    animation: none;
+    width: 80%;
+  }
+
+  .mainvisual .navi ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    gap: 0;
+  }
+
+  .mainvisual .navi li {
+    flex: 1; /* 均等に並ぶ */
+    font-size: 14px;
+    padding: 0;
+    text-align: center;
+  }
+
+
+
+  .section-title {
+    display: flex;
+    justify-content: center;
+  }
+  /*-------------------------------------------
+   自己紹介
+  -------------------------------------------*/
+  #about {
+    display: block;
+    justify-content: center;
+  }
+  /*-------------------------------------------
+   自己紹介画像
+  -------------------------------------------*/
+  #about .img {
+    height: 500px;    /* 画像は500pxで固定  */
+  }
+
+  /*-------------------------------------------
+  自己紹介テキスト
+  -------------------------------------------*/
+  #about .text {
+    padding: 10px 30px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+  #about .text .section-Headline {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  /* 説明文 */
+  #about .text .description {
+    font-size: 13px;
+  }
+  /*-------------------------------------------
+   ワークス
+  -------------------------------------------*/
+  #works {
+    padding-top: 130px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  *-------------------------------------------
+   スキル
+  -------------------------------------------*/
+  
+  #skill{
+    padding: 10px 0;
+    display: block;
+    justify-content: center;
+  }
+  
+  #skill .text {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    transform: none;
+    animation: none;
+  }
+  #skill .text .section-Headline {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  #skill .img {
+    position: relative;
+    display: block;
+    justify-content: center;
+    top: 0;
+    padding: 0;
+  }
+  
+  #skill .img img {
+    width: 100%;
+  }
+
+  /* 説明文 */
+  #skill .text .description {
+    font-size: 13px;
+  }
+  
+  *-------------------------------------------
+   コンタクト
+  -------------------------------------------*/
+  #contact .wrapper {
+    max-width: 100%;
+    padding: 10px 10px;
+    display: block;
+    justify-content: center;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+
+  #contact p{
+    font-size: 12px;
+    padding: 10px 30px;
+  }
+
+  #contact .section-Headline {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* フォーム */
+  #contact form  {
+    padding: 10px 30px;
+  }
+
+  /* ラベル */
+  #contact form label {
+    font-size: 13px;
+  }
+  
+  /* 送信ボタン */
+  #contact button[type="submit"] {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+
+  /*-------------------------------------------
+  Footer
+  -------------------------------------------*/
+  #footer {
+    //background-color: #EDEDEC;
+    padding: 30px 30px;
+  }
+  #footer .inner {
+    display: block;
+  }
+
+}
+

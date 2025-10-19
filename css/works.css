@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  font-family: 'Zen Maru Gothic', serif;
+  background: linear-gradient(to bottom, #eaeff7, #f6f0ff);
+  color: #4a4a6a;
+  line-height: 1.5;
+}
+/* リンクの下線を消す */
+a {
+  text-decoration: none;
+  color: #333;
+}
+.work-title {
+  font-size: 2.5rem;
+  margin: 10px 10px 20px 20px;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.caption {
+  margin-left: 10px;
+  color: #666;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.back-link a {
+  color: #666;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin-right: 10px;
+}
+
+.back-link a:hover {
+  color: #000;
+}
+
+.work-container {
+  display: flex;
+  gap: 2rem; /* 間隔を調整 */
+  align-items: flex-start; /* 上揃え */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+
+section {
+  margin-bottom: 30px;
+}
+
+/* フレックスコンテナーの領域に収めるために、伸長・収縮指定 */
+.main-visual {
+  flex: 1;
+}
+
+.work-detail {
+  flex: 1;
+}
+
+.visual img {
+  width: 100%;
+  position: relative;
+  transition: opacity 0.4s ease;
+}
+
+/*.visual img {
+  position: relative;
+  transition: all 0.3s ease;
+}*/
+
+.main-visual .thumbnails {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+}
+
+.main-visual .thumbnails img {
+  width: 13%;;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.main-visual .thumbnails img:hover, .thumbnails2 img:hover{
+  opacity: 1;
+  transform: scale(1.05);
+}
+h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.main-visual .thumbnails2 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-top: 10px;
+  gap: 1rem;
+}
+
+.main-visual .thumbnails2 img {
+  width: 8%;;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* リンクの下線を表示する */
+#link {
+  text-decoration: underline;
+}
+/*-------------------------------------------
+スマートフォン
+-------------------------------------------*/
+
+@media (max-width: 768px) {
+  .hero-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .back-link a {
+    margin-left: 10px;
+  }
+
+  .hero-left {
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .caption {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+
+  .work-container {
+    flex-direction: column;
+  }
+
+}
